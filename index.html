@@ -2,12 +2,31 @@
 <html lang="en"></html>
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <script src="https://unpkg.com/topojson-client@3"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3-annotation/2.5.1/d3-annotation.min.js"></script>
+<script src="js/main.js"></script>
 <head>
     <meta charset="UTF-8">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CWUR University Ranking 2012-2015</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    <h1>My First Heading</h1>
-    <p>My first paragraph.</p>
+    <div class="flex-container">
+        <h1>University Ranking 2012-2015</h1>
+    </div>
+    <div class="flex-box">
+        <ul class="navbar">
+            <li><a onclick="clearChart(sid);clearYear();init_2012(width,height,undefined,undefined,sid);current_chart='pre_1778';loadH2Element(chart_title_pre_1778);loadPElement(chart_paragraph_pre_1778);">1. 2012</a></li>
+            <li><a onclick="clearChart(sid);clearYear();init_2013(width,height,undefined,undefined,sid);current_chart='1796_1836';loadH2Element(chart_title_1796_1836);loadPElement(chart_paragraph_1796_1836);">2. 2013</a></li>
+            <li><a onclick="clearChart(sid);clearYear();init_2014(width,height,undefined,undefined,sid_with_legend_hash);current_chart='1850_1950';loadH2Element(chart_title_1850_1950);loadPElement(chart_paragraph_1850_1950);">3. 2014</a></li>
+            <li><a onclick="clearChart(sid);clearYear();init_2015(width,height,undefined,undefined,sid);current_chart='1960_2020';loadH2Element(chart_title_1960_2020);loadPElement(chart_paragraph_1960_2020);">4. 2015</a></li>
+        </ul>
+    </div>
+    <br>
+    <div class="flex-container">
+        <p>Data source:
+            <a href="https://www.kaggle.com/mylesoneill/world-university-rankings">Kaggle World University Rankings</a>
+        </p>
+    </div>
 </body>
 </html>
