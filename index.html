@@ -14,17 +14,20 @@
     <div class="flex-container">
         <h1>CWUR University Ranking 2012-2015</h1>
     </div>
+    <div class="flex-box">
+        <input type="text" id="maxRank" onkeyup="clearChart(sid);selectYear(currentYear);initChart(currentYear,sid,this.value)" placeholder="Search for university ranked within.." size="30">
+        <button onclick="clearChart(sid);clearYear();initChart(currentYear,sid,undefined);">Reset</button>
+    </div>
     <div class="flex-box-charts">
         <svg id="ranking" width="1600" height="610"></svg>
-        <script src="js/main.js" onload="initChart('2012',sid)"></script>
-        <button onclick="clearChart(sid);clearYear();initChart('2012',sid);">Reset</button>
+        <script src="js/main.js" onload="initChart('2012',sid,undefined)"></script>
     </div>
     <div class="flex-box">
         <ul class="navbar">
-            <li><a onclick="clearChart(sid);clearYear();initChart('2012',sid);">2012</a></li>
-            <li><a onclick="clearChart(sid);clearYear();initChart('2013',sid);">2013</a></li>
-            <li><a onclick="clearChart(sid);clearYear();initChart('2014',sid);">2014</a></li>
-            <li><a onclick="clearChart(sid);clearYear();initChart('2015',sid);">2015</a></li>
+            <li><a onclick="clearChart(sid);selectYear('2012');initChart('2012',sid,undefined);">2012</a></li>
+            <li><a onclick="clearChart(sid);selectYear('2013');initChart('2013',sid,undefined);">2013</a></li>
+            <li><a onclick="clearChart(sid);selectYear('2014');initChart('2014',sid,undefined);">2014</a></li>
+            <li><a onclick="clearChart(sid);selectYear('2015');initChart('2015',sid,undefined);">2015</a></li>
         </ul>
     </div>
     <div class="flex-container">

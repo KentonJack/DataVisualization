@@ -2,22 +2,23 @@ const width = 1600;
 const height = 600;
 const margin = { top: 80, right: 100, bottom: 40, left: 120 };
 const sid = "#ranking";
+var currentYear;
 
 function clearChart(sid) {
     d3.select(sid).selectAll("*").remove();
 }
 
-function selectYear() {
-    const year = document.getElementById("year").value;
-    clearChart(sid);
-    drawChart(sid, year);
+function selectYear(year) {
+    currentYear = year;
 }
 
 function clearYear() {
     clearChart(sid);
 }
 
-async function initChart(year, sid) {
+async function initChart(year, sid, max_rank) {
+    currentYear = year;
+
     const dataPath = "https://raw.githubusercontent.com/KentonJack/DataVisualization/main/data/cwurData_" + year + ".csv";
     let dataRaw = await d3.csv(dataPath);
     dataRaw.forEach(d => {
@@ -26,6 +27,7 @@ async function initChart(year, sid) {
         d.institution = d.institution;
         d.country = d.country;
     });
+    if (max_rank) dataRaw = dataRaw.filter(d => d.world_rank <= Number(max_rank));
 
     // convert data to a list of countries and their frequency
     const data = [ ...new Set(dataRaw.map(d => d.country)) ].map(country => {
