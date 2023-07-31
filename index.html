@@ -12,17 +12,21 @@
 </head>
 <body>
     <div class="flex-container">
-        <h1>University Ranking 2012-2015</h1>
+        <h1>CWUR University Ranking 2012-2015</h1>
+    </div>
+    <div class="flex-box-charts">
+        <svg id="ranking" width="1600" height="610"></svg>
+        <script src="js/main.js" onload="initChart('2012',sid)"></script>
+        <button onclick="clearChart(sid);clearYear();initChart('2012',sid);">Reset</button>
     </div>
     <div class="flex-box">
         <ul class="navbar">
-            <li><a onclick="clearChart(sid);clearYear();init_2012(width,height,undefined,undefined,sid);current_chart='pre_1778';loadH2Element(chart_title_pre_1778);loadPElement(chart_paragraph_pre_1778);">1. 2012</a></li>
-            <li><a onclick="clearChart(sid);clearYear();init_2013(width,height,undefined,undefined,sid);current_chart='1796_1836';loadH2Element(chart_title_1796_1836);loadPElement(chart_paragraph_1796_1836);">2. 2013</a></li>
-            <li><a onclick="clearChart(sid);clearYear();init_2014(width,height,undefined,undefined,sid_with_legend_hash);current_chart='1850_1950';loadH2Element(chart_title_1850_1950);loadPElement(chart_paragraph_1850_1950);">3. 2014</a></li>
-            <li><a onclick="clearChart(sid);clearYear();init_2015(width,height,undefined,undefined,sid);current_chart='1960_2020';loadH2Element(chart_title_1960_2020);loadPElement(chart_paragraph_1960_2020);">4. 2015</a></li>
+            <li><a onclick="clearChart(sid);clearYear();initChart('2012',sid);">2012</a></li>
+            <li><a onclick="clearChart(sid);clearYear();initChart('2013',sid);">2013</a></li>
+            <li><a onclick="clearChart(sid);clearYear();initChart('2014',sid);">2014</a></li>
+            <li><a onclick="clearChart(sid);clearYear();initChart('2015',sid);">2015</a></li>
         </ul>
     </div>
-    <br>
     <div class="flex-container">
         <p>Data source:
             <a href="https://www.kaggle.com/mylesoneill/world-university-rankings">Kaggle World University Rankings</a>
